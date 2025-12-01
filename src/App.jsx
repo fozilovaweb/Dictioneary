@@ -1,12 +1,14 @@
-import React from "react";
-import Home from "./pajes/Home";
+import Header from "./components/Header";
+import { Home } from "./components/pages/Home";
+import { ThemeProvider } from "./components/ThemeContext";
 
-function App() {
+const App = () => {
   return (
-    <div>
+    <ThemeProvider>
+      <Header />
       <Home />
-    </div>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
