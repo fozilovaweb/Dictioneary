@@ -12,19 +12,20 @@ const Phonetics = ({ phonetics }) => {
 
   return (
     <div className="mt-4">
-      {phonetics.map((p, i) =>
-        p.audio ? (
-          <div key={i} className="flex items-center my-3">
-            <audio ref={(el) => (audioRefs.current[i] = el)} src={p.audio} />
+      {phonetics.length > 0 && phonetics[0].audio && (
+        <div className="flex items-center my-3">
+          <audio
+            ref={(el) => (audioRefs.current[0] = el)}
+            src={phonetics[0].audio}
+          />
 
-            <img
-              src="/play.png"
-              alt="play"
-              className="w-12 h-12 cursor-pointer hover:scale-110 transition"
-              onClick={() => handlePlay(i)}
-            />
-          </div>
-        ) : null
+          <img
+            src="/play.png"
+            alt="play"
+            className="w-12 h-12 cursor-pointer hover:scale-110 transition"
+            onClick={() => handlePlay(0)}
+          />
+        </div>
       )}
     </div>
   );
